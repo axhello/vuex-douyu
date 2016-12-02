@@ -17,9 +17,6 @@
         required: true
       }
     },
-    mounted () {
-      this.$store.dispatch('getGameTitle', this.room.game_name)
-    },
     components: {
       ImagePlaceholder
     }

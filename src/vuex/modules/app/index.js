@@ -8,7 +8,7 @@ import mutations from './mutations'
 const state = {
   leftNavState: false,
   loading: false,
-  getGameTitle: '英雄联盟'
+  getGameTitle: ''
 }
 
 export default {

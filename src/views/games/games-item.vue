@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'roomlists', params: {id: games.short_name}}">
+  <router-link :to="{name: 'roomlists', params: {id: games.short_name, name: games.game_name}}">
     <div class="n-list-item">
       <img :src="games.game_icon" :alt="games.game_name">
       <p class="title">{{games.game_name}}</p>
@@ -12,12 +12,6 @@
       games: {
         type: Object,
         required: true
-      }
-    },
-    methods: {
-      getTitle () {
-        console.log('ture')
-        this.$store.dispatch('getGameTitle', this.games.game_name)
       }
     }
   }

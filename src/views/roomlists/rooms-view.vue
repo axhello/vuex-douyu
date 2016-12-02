@@ -22,6 +22,7 @@
     },
     mounted () {
       this.$store.dispatch('fetchRoomLists', this.$route.params.id, 30)
+      this.$store.dispatch('getGameTitle', this.$route.params.name)
     },
     components: {
       RoomsItem
