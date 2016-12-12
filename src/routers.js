@@ -3,10 +3,6 @@ export default [{
   name: 'index',
   component: require('./views/home/index')
 }, {
-  path: '/login',
-  name: 'login',
-  component: require('./views/member/login')
-}, {
   path: '/games',
   name: 'games',
   component: require('./views/games/games-view')
