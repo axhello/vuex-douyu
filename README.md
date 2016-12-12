@@ -1,21 +1,8 @@
-## Build Setup
+## Vuex版本的斗鱼直播页面
+使用技术栈： webpack + vuejs2.0 + vuex2.0 + vue-resource + vue-router2.0
+## 跨域问题
+vuex版本不再使用自带的API Proxy代理
+> 跨域可以使用谷歌的插件解决:https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi  
+或者谷歌开启允许跨域,参考 http://camnpr.com/archives/chrome-args-disable-web-security.html
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
+## 演示

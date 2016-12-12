@@ -28,9 +28,9 @@
     data () {
       let menuList = [
       {name: '全部', path: '/games'},
-      {name: '热门游戏', path: '/film'},
+      {name: '热门游戏', path: '/cinema'},
       {name: '手游休闲', path: '/cinema'},
-      {name: '鱼乐星天地', path: '/login'},
+      {name: '鱼乐星天地', path: '/cinema'},
       {name: '鱼秀', path: '/cinema'},
       {name: '颜值', path: '/cinema'},
       {name: '科技', path: '/cinema'},

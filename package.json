@@ -1,8 +1,8 @@
 {
-  "name": "vuexmaizuo2",
+  "name": "vuex-douyu",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "郑国榕 <zhengguorong@bluemoon.com.cn>",
+  "author": "axhello <zhanglin-pc@live.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
