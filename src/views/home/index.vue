@@ -8,7 +8,9 @@
       </swiper-slide>
     </swiper>
     <div class="m-row">
-      <live-list :lives="liveroomslists"></live-list>
+      <keep-alive>
+        <live-list :lives="liveroomslists"></live-list>
+      </keep-alive>
     </div>
   </section>
 </template>
@@ -63,7 +65,6 @@
   .m-row {
     position: relative;
     box-sizing: border-box;
-    margin-top: .26666667rem;
     padding: 0 .13333333rem .13333333rem;
     width: 100%;
     background-color: #fff;

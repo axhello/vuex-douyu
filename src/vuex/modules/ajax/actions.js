@@ -31,9 +31,9 @@ const _get = ({ url, query }, commit) => {
  * @param  {Number} limit            每页数量
  * @return {Promise}                 Promise
  */
-export const fetchRoomLists = ({commit}, cname, limit) => {
-  const url = `/live/${cname}`
-  const query = `offset=0&limit=${limit}`
+export const fetchRoomLists = ({commit}, obj) => {
+  const url = `/live/${obj.id}`
+  const query = `offset=0&limit=${obj.limit}`
   return _get({ url, query }, commit)
     .then((json) => {
       if (json.error === 0) {
