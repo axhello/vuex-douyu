@@ -6,3 +6,6 @@ vuex版本不再使用自带的API Proxy代理
 或者谷歌开启允许跨域,参考 http://camnpr.com/archives/chrome-args-disable-web-security.html
 
 ## 演示
+请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。
+
+[请点这里查看](http://douyu.ciyuanai.net)	
