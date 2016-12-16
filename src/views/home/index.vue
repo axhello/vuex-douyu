@@ -3,8 +3,12 @@
     <swiper class="my-swipe" :options="swiperOption">
       <swiper-slide class="silde" v-for="billboard in billboards">
         <a>
-          <image-placeholder :src='billboard.imageUrl' placeholder="http://static.m.maizuo.com/v4/static/app/asset/3d2cdb3bd9a23609aa2d84e7c2bfd035.png"></image-placeholder>
+          <image-placeholder :src='billboard.imageUrl'></image-placeholder>
         </a>
+        <div class="swiper-pagination"></div>
+        <div class="dy-swiper-txt">
+            <span>{{billboard.title}}</span>
+        </div>
       </swiper-slide>
     </swiper>
     <div class="m-row">
@@ -32,14 +36,25 @@
     },
     data () {
       return {
-        billboards: [
-        {imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201610151243569733.jpg'},
-        {imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201610151502128990.jpg'},
-        {imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201610151500351532.jpg'},
-        {imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201610151500351532.jpg'},
-        {imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201610151408283380.jpg'},
-        {imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201610151514383789.jpg'}
-        ]
+        billboards: [{
+          imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201612160941003807.png',
+          title: '使命召唤OL'
+        }, {
+          imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201612160742489659.jpg',
+          title: '迎接光荣的进化'
+        }, {
+          imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201612160315127870.jpg',
+          title: '暴走漫画'
+        }, {
+          imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201612160744472747.jpg',
+          title: '一战 我今天贼稳'
+        }, {
+          imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201612160315572097.jpg',
+          title: '漫威DC的秘密'
+        }, {
+          imageUrl: 'https://staticlive.douyucdn.cn/upload/signs/201612160650226184.jpg',
+          title: '单拍模式赞一个'
+        }]
       }
     },
     created () {
@@ -68,5 +83,28 @@
     padding: 0 .13333333rem .13333333rem;
     width: 100%;
     background-color: #fff;
+  }
+  .swiper-pagination {
+    position: absolute;
+    transition: .3s;
+    left: 0;
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    bottom: 11px;
+    background-color: #000;
+    filter: Alpha(Opacity=50);
+    background-color: rgba(0,0,0,.5);
+    text-align: right;
+  }
+  .dy-swiper-txt {
+    height: .8rem;
+    line-height: .9rem;
+    font-size: .373333333rem;
+    color: #fff;
+    position: absolute;
+    bottom: 11px;
+    z-index: 11;
+    left: .2666666rem;
   }
 </style>

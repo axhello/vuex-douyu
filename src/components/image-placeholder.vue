@@ -6,7 +6,16 @@
 
 
 <script>
-  export default{
+  export default {
+    props: {
+      src: {
+        type: String,
+        required: true
+      },
+      placeholder: {
+        type: String
+      }
+    },
     data () {
       return {
         finish: false
@@ -18,15 +27,6 @@
         setTimeout(function () {
           self.finish = true
         }, 100)
-      }
-    },
-    props: {
-      src: {
-        type: String,
-        required: true
-      },
-      placeholder: {
-        type: String
       }
     }
   }
