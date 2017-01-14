@@ -14,6 +14,7 @@
   .dy-inframe {
     width: 100%;
     height: 1050px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 </style>

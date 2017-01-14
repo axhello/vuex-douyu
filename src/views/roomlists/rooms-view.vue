@@ -4,18 +4,25 @@
     <div class="live-list">
       <rooms-item v-for="roomlist in roomlists" :room="roomlist"></rooms-item>
     </div>
-    <div class="more" v-if="!hidden" @click="loadMore">加载更多</div>
+    <more-button>
+      <div class="more-button" v-if="!hidden">
+        <div v-show="!loading" @click="loadMore">加载更多</div>
+        <div v-show="loading" class="ball-pulse"><div></div><div></div><div></div></div>
+      </div>
+    </more-button>
  </div>
 </template>
 <script>
   import RoomsItem from './rooms-item'
+  import MoreButton from '../../components/more-button.vue'
   import {mapGetters} from 'vuex'
 
   export default {
     data () {
       return {
         obj: {id: this.$route.params.id, limit: 8},
-        hidden: false
+        hidden: false,
+        loading: false
       }
     },
     computed: {
@@ -35,27 +42,20 @@
           this.obj.limit = 100
           this.hidden = true
         }
-        this.$store.dispatch('fetchRoomLists', this.obj)
+        setTimeout(() => {
+          this.$store.dispatch('fetchRoomLists', this.obj)
+          this.loading = true
+          setTimeout(() => { this.loading = false }, 500)
+        }, 1000)
       }
     },
     components: {
-      RoomsItem
+      RoomsItem, MoreButton
     }
   }
 </script>
 <style lang='less'>
   .m-row {
-    .more {
-      display: block;
-      margin: .25555rem 0;
-      height: 1.08695652rem;
-      line-height: 1.08695652rem;
-      text-align: center;
-      border: 1px solid #DDD;
-      font-size: .373333333rem;
-      color: #7A7A7A;
-      border-radius: .1333333rem;
-    }
     .title {
       font-size: 14px;
       margin-left: 10px;
