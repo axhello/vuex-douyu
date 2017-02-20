@@ -1,6 +1,6 @@
 <template>
   <div style="background-size:100%;">
-    <img class="live-feature" :src="src" v-on:load="loaded" style="width: 100%; transition: all 1.2s ease;" v-bind:style="{'opacity':finish?1:0}">
+    <img class="live-feature" :src="src" v-on:load="loaded" style="width: 100%; transition: opacity 1.2s ease;" v-bind:style="{'opacity': finish ? 1 : 0}">
   </div>
 </template>
 
@@ -23,9 +23,8 @@
     },
     methods: {
       loaded () {
-        const self = this
-        setTimeout(function () {
-          self.finish = true
+        setTimeout(() => {
+          this.finish = true
         }, 100)
       }
     }

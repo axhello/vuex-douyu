@@ -3,8 +3,8 @@ export default [{
   name: 'index',
   component: require('./views/home/index')
 }, {
-  path: '/games',
-  name: 'games',
+  path: '/all',
+  name: 'all',
   component: require('./views/games/games-view')
 }, {
   path: '/roomlists/:id',

@@ -14,6 +14,9 @@ th, td { /* table elements 表格元素 */
   margin: 0;
   padding: 0;
 }
+a, input, textarea, select, button {
+    outline: 0;
+}
 
 /* 设置默认字体 */
 body,
@@ -35,8 +38,9 @@ small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正�
 ul, ol { list-style: none; }
 
 /* 重置文本格式元素 */
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color: #0894ec; text-decoration: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+a { background-color: transparent; }
+a:hover { text-decoration: none; }
 
 abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
   border-bottom: 1px dotted;
@@ -66,4 +70,6 @@ hr {
 }
 
 /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
-html { overflow-y: scroll; }
+// html { overflow-y: scroll; }
+
+* {box-sizing: border-box;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);-webkit-touch-callout: none;}

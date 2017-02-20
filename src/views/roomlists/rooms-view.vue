@@ -1,6 +1,6 @@
 <template>
  <div class="m-row">
- <div class="title"><span>热门游戏</span> <strong>{{getGameTitle}}</strong></div>
+ <div class="title"><span>斗鱼TV</span> <strong>{{getGameTitle}}</strong></div>
     <div class="live-list">
       <rooms-item v-for="roomlist in roomlists" :room="roomlist"></rooms-item>
     </div>
@@ -45,8 +45,8 @@
         setTimeout(() => {
           this.$store.dispatch('fetchRoomLists', this.obj)
           this.loading = true
-          setTimeout(() => { this.loading = false }, 500)
-        }, 1000)
+          setTimeout(() => { this.loading = false }, 1000)
+        }, 1500)
       }
     },
     components: {

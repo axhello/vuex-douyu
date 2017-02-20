@@ -1,6 +1,3 @@
-/**
- * Created by zhengguorong on 16/6/22.
- */
 import Vue from 'vue'
 import Vuex from 'vuex'
 import ajax from './modules/ajax'

@@ -1,16 +1,13 @@
 <template>
   <nav id="toolbar">
-    <h1 @click="showNav">
-      <a href="javascript: void 0;">
-        <div class="toolbar-title-icon">
-          <span>直播分类</span><i class="iconfont icon-list"></i>
-        </div>
-      </a>
-    </h1>
-    <div id="nav-left">
-      <router-link to='/' class="user">
-        斗鱼TV
-      </router-link>
+    <div class="toolbar-icon" @click="showNav">
+      <i class="iconfont icon-list"></i>
+    </div>
+    <div class="toolbar-title">
+      <span>直播分类</span>
+    </div>
+    <div class="toolbar-left">
+      <router-link to='/' class="user">斗鱼TV</router-link>
     </div>
   </nav>
 </template>
@@ -19,6 +16,7 @@
       methods: {
         showNav () {
           this.$store.dispatch('changeLeftNavState', true)
+          window.document.body.className = 'slide-overflow'
         }
       }
     }
@@ -26,71 +24,43 @@
 <style lang='less'>
   #toolbar {
     background: #282828;
+    color: #fff;
+    font-size: .427rem;
     position: fixed;
-    z-index: 500;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     top: 0;
-    right: 0;
-    left: 0;
-    width: auto;
-    height: 50px;
-    line-height: 50px;
-    overflow: hidden;
-    h1 {
-      color: #fff;
-      font-size: 16px;
-      line-height: 50px;
-      text-align: left;
-      text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
-      width: auto;
-      height: 50px;
-      margin: 0 auto;
-      float: right;
+    z-index: 4;
+    height: 1.333rem;
+    line-height: 1.333rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    .toolbar-icon {
+      -webkit-box-flex: 1 1 0%;
+      -webkit-flex: 1 1 0%;
+      flex: 1 1 0%;
+      text-align: center;
+    }
+    .toolbar-title {
+      -webkit-box-flex: 6 1 0%;
+      -webkit-flex: 6 1 0%;
+      flex: 6 1 0%;
+    }
+    .toolbar-left {
+      -webkit-box-flex: 2 1 0%;
+      -webkit-flex: 2 1 0%;
+      flex: 2 1 0%;
+      text-align: center;
       a {
-        font-size: 16px;
-        line-height: 50px;
-        text-align: left;
-        text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
-        .toolbar-title-icon {
-          float: right;
-          text-align: center;
-          color: #999;
-          margin-right: 15px;
-          span {
-            margin-right: 10px;
-            color: #fff;
-          }
-        }
-        .toolbar-title {
-          float: left;
-          font-size: 14px;
-          color: #efefef;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          display: inline-block;
-          overflow: hidden;
-        }
+        color: #f70;
+        font-weight: 600;
       }
     }
-  }
-  .iconfont {
-    font-size: 22px;
-  }
-  #nav-left {
-    float: left;
-      .city {
-        float: left;
-        font-size: 14px;
-        padding: 0 6px;
-      }
-      .user {
-        float: left;
-        font-size: 16px;
-        margin-left: 15px;
-        text-align: center;
-      }
-      a {
-        color: #ff7700;
-        text-decoration: none;
-      }
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="n-list clearfix">
-    <games-item v-for="allgames in allgameslists" :games="allgames"></games-item>
+    <games-item v-for="allgames in allgameslists.tagInfo" :games="allgames"></games-item>
   </div>
 </template>
 <script>
@@ -8,11 +8,21 @@
   import {mapGetters} from 'vuex'
 
   export default {
+    data () {
+      return {
+        cateName: ''
+      }
+    },
     computed: mapGetters({
       allgameslists: 'getAllGamesLists'
     }),
     mounted () {
-      this.$store.dispatch('fetchAllGamesLists')
+      this.$store.dispatch('fetchAllGamesLists', this.$route.query.type)
+    },
+    watch: {
+      '$route.query.type' () {
+        this.$store.dispatch('fetchAllGamesLists', this.$route.query.type)
+      }
     },
     components: {
       GamesItem

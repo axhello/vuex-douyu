@@ -1,10 +1,10 @@
 <template>
   <div class="main">
-    <Navbar></Navbar>
+    <navbar></navbar>
     <div class="application-view">
       <router-view></router-view>
     </div>
-    <Sidebar></Sidebar>
+    <sidebar></sidebar>
   </div>
 </template>
 
@@ -25,16 +25,17 @@ export default {
 <style lang='less'>
   @import "assets/styles/icon.css";
   @import "assets/styles/reset.css";
+  body.slide-overflow {
+    overflow: hidden;
+  }
   .application-view{
-    padding: 50px 0 0;
+    margin-top: 1.333rem;
   }
   html body {
     line-height: 1.5;
     font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
     color: #333;
     background-color: #fff;
-    overflow-x: hidden;
-    overflow-y: auto
   }
   *{
     box-sizing: border-box;
