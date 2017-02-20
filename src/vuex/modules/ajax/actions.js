@@ -8,10 +8,11 @@ import vue from 'vue'
 const _get = ({ url, query }, commit) => {
   if (commit) commit('START_LOADING')
   let _url
-  if (query) {
-    _url = `http://open.douyucdn.cn/api/RoomApi${url}?${query}`
+  if (url && query !== '') {
+    _url = `/api/${url}?${query}`
   } else {
-    _url = `http://open.douyucdn.cn/api/RoomApi${url}`
+    // moblie api
+    _url = `/category?type=${query}`
   }
 
   return vue.http.get(_url)
@@ -31,8 +32,8 @@ const _get = ({ url, query }, commit) => {
  * @param  {Number} limit            每页数量
  * @return {Promise}                 Promise
  */
-export const fetchRoomLists = ({commit}, obj) => {
-  const url = `/live/${obj.id}`
+export const fetchRoomLists = ({ commit }, obj) => {
+  const url = `live/${obj.id}`
   const query = `offset=0&limit=${obj.limit}`
   return _get({ url, query }, commit)
     .then((json) => {
@@ -47,10 +48,10 @@ export const fetchRoomLists = ({commit}, obj) => {
     })
 }
 
-export const fetchLiveRoomsLists = ({commit}, limit) => {
-  const url = `/live`
+export const fetchLiveRoomsLists = ({ commit }, limit) => {
+  const url = `live`
   const query = `offset=0&limit=${limit}`
-  return _get({url, query}, commit)
+  return _get({ url, query }, commit)
     .then((json) => {
       if (json.error === 0) {
         return commit('FETCH_LIVE_LIST_SUCCESS', json.data)
@@ -58,40 +59,20 @@ export const fetchLiveRoomsLists = ({commit}, limit) => {
       return Promise.reject(new Error('fetchFilmsLists failure'))
     })
     .catch((error) => {
-      // commit('FETCH_TOPIC_LISTS_FAILURE', topicTab, page)
       return Promise.reject(error)
     })
 }
 
-export const fetchAllGamesLists = ({commit}) => {
-  const url = '/game'
-  const query = ''
+export const fetchAllGamesLists = ({ commit }, type) => {
+  const url = ''
+  const query = type
   return _get({ url, query }, commit)
     .then((json) => {
-      if (json.error === 0) {
-        return commit('FETCH_GAMES_LIST_SUCCESS', json.data)
-        // console.log(json.data)
-      }
-      return Promise.reject(new Error('FETCH_GAMES_LIST_SUCCESS failure'))
+      return commit('FETCH_GAMES_LIST_SUCCESS', json)
+      // console.log(json)
+      // return Promise.reject(new Error('FETCH_GAMES_LIST_SUCCESS failure'))
     })
     .catch((error) => {
-      // commit('FETCH_TOPIC_LISTS_FAILURE', topicTab, page)
-      return Promise.reject(error)
-    })
-}
-
-export const fetchBillboards = ({commit}) => {
-  const url = '/billboard/home'
-  const query = '_t=' + new Date().getTime()
-  return _get({ url, query }, commit)
-    .then((json) => {
-      if (json.status === 0) {
-        return commit('FETCH_BANNER_SUCCESS', json.data)
-      }
-      return Promise.reject(new Error('FETCH_BANNER_SUCCESS failure'))
-    })
-    .catch((error) => {
-      // commit('FETCH_TOPIC_LISTS_FAILURE', topicTab, page)
       return Promise.reject(error)
     })
 }
