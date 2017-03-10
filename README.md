@@ -1,11 +1,11 @@
 ## Vuex版本的斗鱼直播页面
 使用技术栈： webpack + vuejs2.0 + vuex2.0 + vue-resource + vue-router2.0
-## 跨域问题
-vuex版本不再使用自带的API Proxy代理
-> 跨域可以使用谷歌的插件解决:https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
-或者谷歌开启允许跨域,参考 http://camnpr.com/archives/chrome-args-disable-web-security.html
 
-## 演示
-请打开chrome浏览器的手机模拟功能，来获得比较好的浏览效果。
+## 更改使用本地Proxy代理，解决跨域问题
 
-[请点这里查看](http://douyu.ciyuanai.net)	
+## 动图演示
+![demo-1](https://github.com/axhello/vuex-douyu/blob/master/screenshot/demo-1.gif)
+![demo-2](https://github.com/axhello/vuex-douyu/blob/master/screenshot/demo-2.gif)
+
+## 在线演示
+（由于在线演示有点麻烦，所以就不弄了...）
