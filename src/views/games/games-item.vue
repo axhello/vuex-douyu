@@ -1,10 +1,11 @@
 <template>
-  <router-link  class="n-list-item" :to="{name: 'roomlists', params: {id: games.short_name, name: games.tag_name}}">
-    <img :src="games.icon_url" :alt="games.tag_name">
-    <p class="title">{{games.tag_name}}</p>
+  <router-link class="n-list-item" :to="{name: 'roomlists', params: {id: games.shortName, name: games.cate2Name}}">
+    <image-placeholder :src="games.icon" ></image-placeholder>
+    <p class="title">{{ games.cate2Name }}</p>
   </router-link>
 </template>
 <script>
+  import ImagePlaceholder from '../../components/image-placeholder'
   export default {
     props: {
       games: {
@@ -14,6 +15,9 @@
     },
     mounted () {
       // console.log(this.games)
+    },
+    components: {
+      ImagePlaceholder
     }
   }
 </script>
@@ -25,7 +29,6 @@
       float: left;
       width: 3.3rem;
       height: 3.3rem;
-      background-color: #F4F4F4;
       border-right: 1px dashed #ddd;
       border-bottom: 1px dashed #ddd;
       text-align: center;

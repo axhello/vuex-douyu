@@ -4,8 +4,7 @@ import mutations from './mutations'
 
 const state = {
   leftNavState: false,
-  loading: false,
-  getGameTitle: ''
+  loading: false
 }
 
 export default {

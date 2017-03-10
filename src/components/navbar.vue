@@ -3,7 +3,7 @@
     <div class="toolbar-icon" @click="showNav">
       <i class="iconfont icon-list"></i>
     </div>
-    <div class="toolbar-title">
+    <div class="toolbar-title" @click="showNav">
       <span>直播分类</span>
     </div>
     <div class="toolbar-left">

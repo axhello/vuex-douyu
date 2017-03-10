@@ -28,9 +28,8 @@ const _get = ({ url, query }, commit) => {
 /**
  * 获取分类直播房间列表
  * @param  {Function} options.dispatch store对象解构出来的函数，无需手动提供
- * @param  {String} cname            分类名
- * @param  {Number} limit            每页数量
- * @return {Promise}                 Promise
+ * @param  {String} obj            传递过来的对象 包含id与limit
+ * @return {Promise}               Promise
  */
 export const fetchRoomLists = ({ commit }, obj) => {
   const url = `live/${obj.id}`
@@ -47,7 +46,12 @@ export const fetchRoomLists = ({ commit }, obj) => {
       return Promise.reject(error)
     })
 }
-
+/**
+ * 获取直播中房间列表
+ * @param  {Function} options.dispatch store对象解构出来的函数，无需手动提供
+ * @param  {Number} limit            每页数量
+ * @return {Promise}                 Promise
+ */
 export const fetchLiveRoomsLists = ({ commit }, limit) => {
   const url = `live`
   const query = `offset=0&limit=${limit}`
@@ -63,13 +67,19 @@ export const fetchLiveRoomsLists = ({ commit }, limit) => {
     })
 }
 
+/**
+ * 获取分类列表
+ * @param  {Function} options.dispatch store对象解构出来的函数，无需手动提供
+ * @param  {String} type            分类类型
+ * @return {Promise}                Promise
+ */
 export const fetchAllGamesLists = ({ commit }, type) => {
   const url = ''
   const query = type
   return _get({ url, query }, commit)
     .then((json) => {
+      // 无状态码判断 直接返回
       return commit('FETCH_GAMES_LIST_SUCCESS', json)
-      // console.log(json)
       // return Promise.reject(new Error('FETCH_GAMES_LIST_SUCCESS failure'))
     })
     .catch((error) => {

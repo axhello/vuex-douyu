@@ -82,7 +82,7 @@
     box-sizing: border-box;
     padding: 0 .13333333rem .13333333rem;
     width: 100%;
-    background-color: #fff;
+    background: #fff;
   }
   .swiper-pagination {
     position: absolute;

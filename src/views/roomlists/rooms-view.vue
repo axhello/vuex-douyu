@@ -1,6 +1,6 @@
 <template>
  <div class="m-row">
- <div class="title"><span>斗鱼TV</span> <strong>{{getGameTitle}}</strong></div>
+ <div class="title"><span>{{cateName}}</span> <strong>{{gameName}}</strong></div>
     <div class="live-list">
       <rooms-item v-for="roomlist in roomlists" :room="roomlist"></rooms-item>
     </div>
@@ -20,20 +20,24 @@
   export default {
     data () {
       return {
-        obj: {id: this.$route.params.id, limit: 8},
+        obj: {
+          id: this.$route.params.id,
+          limit: 8
+        },
         hidden: false,
-        loading: false
+        loading: false,
+        cateName: '',
+        gameName: ''
       }
     },
     computed: {
       ...mapGetters({
-        roomlists: 'getRoomlists',
-        getGameTitle: 'getGameTitle'
+        roomlists: 'getRoomlists'
       })
     },
     mounted () {
       this.$store.dispatch('fetchRoomLists', this.obj)
-      this.$store.dispatch('getGameTitle', this.$route.params.name)
+      this.cateName = window.localStorage.getItem('cateTitle')
     },
     methods: {
       loadMore () {
@@ -46,11 +50,17 @@
           this.$store.dispatch('fetchRoomLists', this.obj)
           this.loading = true
           setTimeout(() => { this.loading = false }, 1000)
-        }, 1500)
+        }, 1200)
+      }
+    },
+    watch: {
+      'roomlists' () {
+        this.gameName = this.roomlists[0].game_name
       }
     },
     components: {
-      RoomsItem, MoreButton
+      RoomsItem,
+      MoreButton
     }
   }
 </script>

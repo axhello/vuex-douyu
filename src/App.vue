@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <navbar></navbar>
-    <div class="application-view">
+    <div class="view">
       <router-view></router-view>
     </div>
     <sidebar></sidebar>
@@ -28,16 +28,16 @@ export default {
   body.slide-overflow {
     overflow: hidden;
   }
-  .application-view{
+  .view{
     margin-top: 1.333rem;
   }
   html body {
     line-height: 1.5;
-    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    font-family: "Helvetica Neue","Arial","PingFang SC","Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
     color: #333;
-    background-color: #fff;
+    background-color: #F4F4F4;
   }
-  *{
+  * {
     box-sizing: border-box;
   }
   .clearfix() {

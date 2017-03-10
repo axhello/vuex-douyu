@@ -1,8 +1,7 @@
 import {
   CHANGE_LEFTNAV_STATE,
   START_LOADING,
-  FINISH_LOADING,
-  GET_GAME_TITLE
+  FINISH_LOADING
 } from './mutation-type'
 
 const mutations = {
@@ -15,9 +14,6 @@ const mutations = {
   },
   [FINISH_LOADING] (state) {
     state.loading = false
-  },
-  [GET_GAME_TITLE] (state, title) {
-    state.getGameTitle = title
   }
 }
 export default mutations

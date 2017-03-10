@@ -1,6 +1,6 @@
 <template>
   <div class="n-list clearfix">
-    <games-item v-for="allgames in allgameslists.tagInfo" :games="allgames"></games-item>
+    <games-item v-for="allgames in allgameslists.cate2Info" :games="allgames"></games-item>
   </div>
 </template>
 <script>
@@ -8,11 +8,6 @@
   import {mapGetters} from 'vuex'
 
   export default {
-    data () {
-      return {
-        cateName: ''
-      }
-    },
     computed: mapGetters({
       allgameslists: 'getAllGamesLists'
     }),
@@ -22,6 +17,13 @@
     watch: {
       '$route.query.type' () {
         this.$store.dispatch('fetchAllGamesLists', this.$route.query.type)
+      },
+      'allgameslists' () {
+        if (this.allgameslists.cate1Info.length === undefined) {
+          window.localStorage.setItem('cateTitle', this.allgameslists.cate1Info.cate1Name)
+        } else {
+          window.localStorage.setItem('cateTitle', '全部')
+        }
       }
     },
     components: {

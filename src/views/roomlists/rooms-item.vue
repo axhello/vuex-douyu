@@ -1,4 +1,4 @@
-  <template>
+<template>
   <router-link :to="{name: 'detail', params: {id: room.room_id}}" class="live">
       <image-placeholder :src="room.room_src"></image-placeholder>
       <div class="live-title">{{room.room_name}}</div>
