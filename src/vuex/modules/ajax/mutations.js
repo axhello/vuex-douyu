@@ -1,21 +1,21 @@
-import {
-  FETCH_LIVE_LIST_SUCCESS,
-  FETCH_GAMES_LIST_SUCCESS,
-  FETCH_ROOM_LIST_SUCCESS
-  } from './mutation-type'
+import * as types from './mutation-types'
 
 const mutations = {
   // 获取热门直播
-  [FETCH_LIVE_LIST_SUCCESS] (state, data) {
+  [types.FETCH_LIVE_LIST_SUCCESS] (state, data) {
     state.liveroomslists = data
   },
-  // 获取所有游戏列表
-  [FETCH_GAMES_LIST_SUCCESS] (state, data) {
-    state.allgameslists = data
-  },
   // 获取分类房间列表
-  [FETCH_ROOM_LIST_SUCCESS] (state, data) {
+  [types.FETCH_ROOM_LIST_SUCCESS] (state, data) {
     state.roomlists = data
+  },
+  // 获取所有目录
+  [types.FETCH_CATEGORY_SUCCESS] (state, data) {
+    state.category = data
+  },
+  // 获取目录列表
+  [types.FETCH_CATEGORY_LIST_SUCCESS] (state, data) {
+    state.categorylist = data
   }
 }
 

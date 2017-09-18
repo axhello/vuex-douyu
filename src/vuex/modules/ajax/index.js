@@ -4,8 +4,9 @@ import mutations from './mutations'
 
 const state = {
   liveroomslists: [],
-  allgameslists: [],
-  roomlists: []
+  roomlists: [],
+  category: [],
+  categorylist: []
 }
 
 export default {

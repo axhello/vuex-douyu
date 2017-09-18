@@ -4,9 +4,9 @@
       <div class="sidebar-list">
         <nav>
             <ul>
-              <li v-for="menu in menuList" @click="hideNav">
-                <router-link :to="{ path: menu.path, query: { type: menu.type }}">
-                  <span>{{menu.name}}</span><i class="iconfont icon-arrow-right right"></i>
+              <li v-for="category in categores" @click="hideNav">
+                <router-link :to="{ name: 'category', params: { type: category.shortName }}">
+                  <span>{{category.cate1Name}}</span><i class="iconfont icon-arrow-right right"></i>
                 </router-link>
               </li>
             </ul>
@@ -21,21 +21,9 @@
   export default{
     computed: {
       ...mapGetters({
-        show: 'getLeftNavState'
+        show: 'getLeftNavState',
+        categores: 'getCategory'
       })
-    },
-    data () {
-      let menuList = [
-        {name: '全部', path: '/all', type: ''},
-        {name: '热门游戏', path: '/all', type: 'game'},
-        {name: '移动游戏', path: '/all', type: 'ydyx'},
-        {name: '鱼乐星天地', path: '/all', type: 'ylxtd'},
-        {name: '颜值', path: '/all', type: 'yz'},
-        {name: '科技', path: '/all', type: 'kj'},
-        {name: '文娱课堂', path: '/all', type: 'wykt'},
-        {name: '正能量', path: '/all', type: 'znl'}
-      ]
-      return { menuList: menuList }
     },
     methods: {
       hideNav () {
@@ -45,7 +33,7 @@
     }
   }
 </script>
-<style lang='less'>
+<style lang="less">
 .application-sidebar {
   .sidebar-container {
     position: fixed;

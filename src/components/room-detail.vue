@@ -10,7 +10,7 @@
     }
   }
 </script>
-<style lang='less'>
+<style lang="less">
   .dy-inframe {
     width: 100%;
     height: 1050px;

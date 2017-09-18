@@ -1,5 +1,5 @@
 <template>
-  <router-link class="n-list-item" :to="{name: 'roomlists', params: {id: games.shortName, name: games.cate2Name}}">
+  <router-link class="n-list-item" :to="{name: 'roomlists', params: {id: games.shortName, cateName: cateName.cate1Name, name: games.cate2Name}}">
     <image-placeholder :src="games.icon" ></image-placeholder>
     <p class="title">{{ games.cate2Name }}</p>
   </router-link>
@@ -11,17 +11,17 @@
       games: {
         type: Object,
         required: true
+      },
+      cateName: {
+        type: Object
       }
-    },
-    mounted () {
-      // console.log(this.games)
     },
     components: {
       ImagePlaceholder
     }
   }
 </script>
-<style lang='less'>
+<style lang="less">
   .n-list {
     .n-list-item {
       margin: 0;

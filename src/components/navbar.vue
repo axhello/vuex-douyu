@@ -21,7 +21,7 @@
       }
     }
 </script>
-<style lang='less'>
+<style lang="less">
   #toolbar {
     background: #282828;
     color: #fff;

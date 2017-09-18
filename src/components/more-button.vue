@@ -3,7 +3,6 @@
     <slot></slot>
   </div>
 </template>
-
 <style lang="less">
   .more-button {
       display: block;
@@ -69,8 +68,3 @@
       }
   }
 </style>
-
-<script>
-  export default{
-  }
-</script>

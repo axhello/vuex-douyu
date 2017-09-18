@@ -13,18 +13,21 @@ import Sidebar from './components/sidebar'
 import Navbar from './components/navbar'
 import { mapGetters } from 'vuex'
 export default {
+  created () {
+    this.$store.dispatch('fetchCategory')
+  },
   components: {
     Sidebar, Navbar
   },
-  computed: mapGetters({
-    loading: 'getLoading'
-  })
+  computed: {
+    ...mapGetters({
+      loading: 'getLoading'
+    })
+  }
 }
 </script>
 
 <style lang='less'>
-  @import "assets/styles/icon.css";
-  @import "assets/styles/reset.css";
   body.slide-overflow {
     overflow: hidden;
   }

@@ -1,21 +1,26 @@
+const index = r => require.ensure([], () => r(require('./views/home/index')), 'index')
+const games = r => require.ensure([], () => r(require('./views/games/games-view')), 'games')
+const rooms = r => require.ensure([], () => r(require('./views/roomlists/rooms-view')), 'rooms')
+const detail = r => require.ensure([], () => r(require('./components/room-detail')), 'detail')
+
 export default [{
   path: '/',
   name: 'index',
-  component: require('./views/home/index')
+  component: index
 }, {
-  path: '/all',
-  name: 'all',
-  component: require('./views/games/games-view')
+  path: '/category/:type',
+  name: 'category',
+  component: games
 }, {
   path: '/roomlists/:id',
   name: 'roomlists',
-  component: require('./views/roomlists/rooms-view')
+  component: rooms
 }, {
   path: '/detail/:id',
   name: 'detail',
-  component: require('./components/room-detail')
+  component: detail
 }, {
   path: '*',
-  component: require('./views/home/index')
+  component: index
 }]
 
