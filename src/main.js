@@ -1,38 +1,34 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'lib-flexible'
 import Vue from 'vue'
 import App from './App'
-import Scroll from 'vue-infinite-scroll'
+import store from './store'
+import router from './router'
 import FastClick from 'fastclick'
-import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import routerConfig from './routers'
-import store from './vuex/store'
 import * as filters from './filters'
-require('swiper/dist/css/swiper.css')
-require('assets/styles/icon.css')
-require('assets/styles/reset.css')
+import './assets/styles/reset.css'
+import './assets/styles/index.css'
+import 'swiper/dist/css/swiper.css'
+import '@/icons' // icon
 
 window.addEventListener('load', () => {
   FastClick.attach(document.body)
 })
-
-// register global utility filters.
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 
-Vue.use(VueRouter)
-Vue.use(VueResource)
-Vue.use(Scroll)
 Vue.use(VueAwesomeSwiper)
 
-const router = new VueRouter({routes: routerConfig})
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  components: { App },
+  template: '<App/>'
 })

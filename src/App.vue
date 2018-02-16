@@ -9,30 +9,22 @@
 </template>
 
 <script>
-import Sidebar from './components/sidebar'
-import Navbar from './components/navbar'
-import { mapGetters } from 'vuex'
+import Sidebar from '~/sidebar'
+import Navbar from '~/navbar'
 export default {
-  created () {
-    this.$store.dispatch('fetchCategory')
-  },
+  name: 'App',
   components: {
     Sidebar, Navbar
-  },
-  computed: {
-    ...mapGetters({
-      loading: 'getLoading'
-    })
   }
 }
 </script>
 
-<style lang='less'>
+<style lang="scss">
   body.slide-overflow {
     overflow: hidden;
   }
   .view{
-    margin-top: 1.333rem;
+    margin-top: 1.233rem;
   }
   html body {
     line-height: 1.5;
@@ -43,18 +35,14 @@ export default {
   * {
     box-sizing: border-box;
   }
-  .clearfix() {
+  .clearfix {
     &:before,
-    &:after {
+    &:after{
       content: " ";
       display: table;
     }
     &:after {
       clear: both;
     }
-  }
-  /*Usage as a Mixin*/
-  .clearfix {
-    .clearfix();
   }
 </style>

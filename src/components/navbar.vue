@@ -1,7 +1,7 @@
 <template>
   <nav id="toolbar">
     <div class="toolbar-icon" @click="showNav">
-      <i class="iconfont icon-list"></i>
+      <svg-icon icon-class="menu"></svg-icon>
     </div>
     <div class="toolbar-title" @click="showNav">
       <span>直播分类</span>
@@ -12,16 +12,16 @@
   </nav>
 </template>
 <script>
-    export default{
-      methods: {
-        showNav () {
-          this.$store.dispatch('changeLeftNavState', true)
-          window.document.body.className = 'slide-overflow'
-        }
-      }
+export default {
+  methods: {
+    showNav() {
+      this.$store.dispatch('changeLeftNavState', true)
+      window.document.body.className = 'slide-overflow'
     }
+  }
+}
 </script>
-<style lang="less">
+<style lang="scss">
   #toolbar {
     background: #282828;
     color: #fff;
@@ -31,8 +31,8 @@
     transform: translateZ(0);
     top: 0;
     z-index: 4;
-    height: 1.333rem;
-    line-height: 1.333rem;
+    height: 1.233rem;
+    line-height: 1.233rem;
     width: 100%;
     display: -webkit-box;
     display: -webkit-flex;

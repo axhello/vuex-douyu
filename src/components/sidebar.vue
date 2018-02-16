@@ -1,39 +1,40 @@
 <template>
-  <aside class="application-sidebar">
-    <div class="sidebar-container" :class="{'show-sidebar':show}">
-      <div class="sidebar-list">
-        <nav>
-            <ul>
-              <li v-for="category in categores" @click="hideNav">
-                <router-link :to="{ name: 'category', params: { type: category.shortName }}">
-                  <span>{{category.cate1Name}}</span><i class="iconfont icon-arrow-right right"></i>
-                </router-link>
-              </li>
-            </ul>
-          </nav>
-      </div>
-    </div>
-    <div class="sidebar-overlay" v-show="show" @click="hideNav"></div>
-  </aside>
+	<aside class="application-sidebar">
+		<div class="sidebar-container" :class="{'show-sidebar':leftNavState}">
+			<nav>
+				  <ul class="sidebar-list">
+						<li class="sidenav" v-for="category in categories" @click="hideNav" :key="category.shortName">
+							<router-link :to="{ name: 'category', params: { type: category.shortName }}">
+								<span class="title">{{category.cate1Name}}</span>
+								<span class="right">
+									<svg-icon icon-class="right"></svg-icon>
+								</span>
+							</router-link>
+						</li>
+					</ul>
+        </nav>
+		</div>
+		<div class="sidebar-overlay" v-show="leftNavState" @click="hideNav"></div>
+	</aside>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
-  export default{
-    computed: {
-      ...mapGetters({
-        show: 'getLeftNavState',
-        categores: 'getCategory'
-      })
-    },
-    methods: {
-      hideNav () {
-        this.$store.dispatch('changeLeftNavState', false)
-        window.document.body.className = ''
-      }
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters(['leftNavState', 'categories'])
+  },
+  created() {
+    this.$store.dispatch('fetchCategory')
+  },
+  methods: {
+    hideNav() {
+      this.$store.dispatch('changeLeftNavState', false)
+      window.document.body.className = ''
     }
   }
+}
 </script>
-<style lang="less">
+<style lang="scss">
 .application-sidebar {
   .sidebar-container {
     position: fixed;
@@ -46,8 +47,8 @@
     z-index: 500;
     top: 0;
     bottom: 0;
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     &.show-sidebar {
       -webkit-transform: translateX(7.733rem);
       transform: translateX(7.733rem);
@@ -55,12 +56,14 @@
     .sidebar-list {
       width: 100%;
       height: 100%;
-      position: relative;
+      .sidenav {
+        a {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
     }
-    a{
-      color: #9a9a9a;
-      font-size: 14px;
-    }
+   
     nav {
       border-top: 1px solid #222;
       box-shadow: 0 1px 1px #363636 inset;
@@ -70,24 +73,22 @@
       right: 0;
       bottom: 0;
       left: 0;
-      padding: .2rem;
+      padding: 0.2rem;
       li {
         overflow: hidden;
-        line-height: 49px;
-        height: 50px;
-        a {
-          display: block;
-          padding: 0 16px;
-          border-bottom: 1px dotted #333;
-          .right {
-              float: right;
-              color: #666;
-              font-size: 15px;
-              padding-top: 15px;
-          }
+        line-height: 50px;
+        padding: 0 15px 0 10px;
+         a {
+          color: #9a9a9a;
+          font-size: 16px;
         }
       }
     }
+  }
+  .right {
+    float: right;
+    color: #666;
+    font-size: 15px;
   }
   .sidebar-overlay {
     position: fixed;
@@ -98,7 +99,7 @@
     bottom: 0;
     left: 0;
     z-index: 5;
-    background: rgba(0,0,0,.7);
+    background: rgba(0, 0, 0, 0.7);
   }
 }
 </style>
