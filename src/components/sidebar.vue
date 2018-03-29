@@ -1,21 +1,24 @@
 <template>
-	<aside class="application-sidebar">
-		<div class="sidebar-container" :class="{'show-sidebar':leftNavState}">
-			<nav>
-				  <ul class="sidebar-list">
-						<li class="sidenav" v-for="category in categories" @click="hideNav" :key="category.shortName">
-							<router-link :to="{ name: 'category', params: { type: category.shortName }}">
-								<span class="title">{{category.cate1Name}}</span>
-								<span class="right">
-									<svg-icon icon-class="right"></svg-icon>
-								</span>
-							</router-link>
-						</li>
-					</ul>
-        </nav>
-		</div>
-		<div class="sidebar-overlay" v-show="leftNavState" @click="hideNav"></div>
-	</aside>
+  <aside class="application-sidebar">
+    <div class="sidebar-container" :class="{'show-sidebar':leftNavState}">
+      <nav>
+        <ul class="sidebar-list">
+          <li class="sidenav"
+              v-for="category in categories"
+              @click="hideNav"
+              :key="category.shortName">
+            <router-link :to="{ name: 'category', params: { type: category.shortName }}">
+              <span class="title">{{category.cate1Name}}</span>
+              <span class="right">
+                <svg-icon icon-class="right"></svg-icon>
+              </span>
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="sidebar-overlay" v-show="leftNavState" @click="hideNav"></div>
+  </aside>
 </template>
 <script>
 import { mapGetters } from 'vuex'
@@ -63,7 +66,6 @@ export default {
         }
       }
     }
-   
     nav {
       border-top: 1px solid #222;
       box-shadow: 0 1px 1px #363636 inset;
@@ -78,7 +80,7 @@ export default {
         overflow: hidden;
         line-height: 50px;
         padding: 0 15px 0 10px;
-         a {
+        a {
           color: #9a9a9a;
           font-size: 16px;
         }

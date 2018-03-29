@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const index = r => require.ensure([], () => r(require('@/views/home/index')), 'index')
-const category = r => require.ensure([], () => r(require('@/views/category/index')), 'category')
-const rooms = r => require.ensure([], () => r(require('@/views/rooms/index')), 'rooms')
-const detail = r => require.ensure([], () => r(require('~/roomDetail')), 'detail')
+
+const home = r => require.ensure([], () => r(require('@/views/home')), 'home')
+const category = r => require.ensure([], () => r(require('@/views/category')), 'category')
+const rooms = r => require.ensure([], () => r(require('@/views/rooms')), 'rooms')
+const detail = r => require.ensure([], () => r(require('@/views/detail')), 'detail')
 
 Vue.use(Router)
 
@@ -12,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: index
+      component: home
     },
     {
       path: '/category/:type',
@@ -31,7 +32,7 @@ export default new Router({
     },
     {
       path: '*',
-      component: index
+      component: home
     }
   ]
 })
