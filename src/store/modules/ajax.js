@@ -71,6 +71,7 @@ const ajax = {
           const result = response.data
           // console.log(result.cate2Info)
           commit('FETCH_CATEGORY_LIST', result.cate2Info)
+          localStorage.setItem('cateName', result.cate1Info.cate1Name)
           resolve(response)
         }).catch(error => {
           reject(error)

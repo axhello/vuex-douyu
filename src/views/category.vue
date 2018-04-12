@@ -1,10 +1,12 @@
 <template>
 	<div class="n-list clearfix">
-		<router-link v-for="(catelist, index) in catelists" :key="index" class="n-list-item" 
-      :to="{name: 'rooms', params: {name: catelist.shortName}}">
+		<a v-for="(catelist, index) in catelists"
+      :key="index"
+      class="n-list-item"
+      @click="rooms(catelist)">
       <img class="live-feature" :src="catelist.icon">
-			<p class="title">{{ catelist.cate2Name }}</p>
-		</router-link>
+      <p class="title">{{ catelist.cate2Name }}</p>
+    </a>
 	</div>
 </template>
 
@@ -21,6 +23,15 @@ export default {
   watch: {
     '$route.params.type'() {
       this.$store.dispatch('fetchCateList', this.$route.params)
+    }
+  },
+  methods: {
+    rooms(catelist) {
+      localStorage.setItem('gameName', catelist.cate2Name)
+      this.$router.push({
+        name: 'rooms',
+        params: { name: catelist.shortName }
+      })
     }
   }
 }

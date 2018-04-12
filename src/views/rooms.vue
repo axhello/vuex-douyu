@@ -1,10 +1,10 @@
 <template>
 	<div class="m-row">
 		<div class="title">
-			<!-- <span><img class="play-icon" src="../../assets/images/icon_play.png"> {{cateName}}</span> -->
       <svg-icon icon-class="tv"></svg-icon>
-			<strong>{{gameName}}</strong>
-		</div>
+      <span v-text="cateName"></span>
+      <strong v-text="gameName"></strong>
+    </div>
 		<div class="live-list clearfix">
 			<router-link v-for="(roomlist, index) in roomlists" :key="index" 
         :to="{name: 'detail', params: {id: roomlist.room_id}}" class="live">
@@ -52,6 +52,10 @@ export default {
     this.params.name = this.$route.params.name
     this.$store.dispatch('fetchRoomLists', this.params)
   },
+  mounted() {
+    this.cateName = localStorage.getItem('cateName')
+    this.gameName = localStorage.getItem('gameName')
+  },
   methods: {
     loadMore() {
       this.params.limit = this.params.limit + 8
@@ -66,12 +70,6 @@ export default {
           this.loading = false
         }, 500)
       }, 800)
-    }
-  },
-  watch: {
-    roomlists() {
-      this.gameName = this.$route.params.cateName
-      this.cateName = this.$route.params.name
     }
   },
   components: {
