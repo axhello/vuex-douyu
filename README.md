@@ -1,4 +1,4 @@
-## Vuex版本的斗鱼直播页面	# vuex-douyu
+## Vuex版的斗鱼 (vuex-douyu)
 
 使用技术栈： webpack + vuejs+ vuex + axios + vue-router	
 
@@ -27,7 +27,7 @@ proxyTable: {
 ![demo-1](https://github.com/axhello/vuex-douyu/blob/master/screenshot/demo-1.gif)	
 ![demo-2](https://github.com/axhello/vuex-douyu/blob/master/screenshot/demo-2.gif)	
 
-## 本地运行	## Build Setup
+## 本地运行	
 
  ``` bash
 # install dependencies	# install dependencies
