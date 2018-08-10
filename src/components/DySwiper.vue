@@ -1,10 +1,10 @@
 <template>
-	<swiper class="my-swipe" :options="swiperOption" ref="mySwiper">
-		<swiper-slide v-for="(billboard, index) in billboards" :key="index">
-			<img class="live-img" :src="billboard.imageUrl">
-		</swiper-slide>
-		<div class="swiper-pagination" slot="pagination"></div>
-	</swiper>
+  <swiper class="my-swipe" :options="swiperOption" ref="mySwiper">
+    <swiper-slide v-for="(billboard, index) in billboards" :key="index">
+      <img class="live-img" :src="billboard.imageUrl">
+    </swiper-slide>
+    <div class="swiper-pagination" slot="pagination"></div>
+  </swiper>
 </template>
 
 <script>
@@ -62,6 +62,6 @@ export default {
   }
 }
 .swiper-pagination {
-  bottom: 20px!important;
+  bottom: 20px !important;
 }
 </style>

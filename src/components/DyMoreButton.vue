@@ -1,11 +1,11 @@
 <template>
-	<div class="more">
-		<slot></slot>
-	</div>
+  <div class="more">
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
-  name: 'moreButton'
+  name: 'DyMoreButton'
 }
 </script>
 
@@ -44,8 +44,7 @@ export default {
       animation: scale 0.75s -0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
     }
     &:nth-child(3) {
-      -webkit-animation: scale 0.75s 0s infinite
-        cubic-bezier(0.2, 0.68, 0.18, 1.08);
+      -webkit-animation: scale 0.75s 0s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
       animation: scale 0.75s 0s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
     }
   }

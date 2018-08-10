@@ -1,36 +1,35 @@
 <template>
-	<div class="m-row">
-		<div class="title">
+  <div class="m-row">
+    <div class="title">
       <svg-icon icon-class="tv"></svg-icon>
       <span v-text="cateName"></span>
       <strong v-text="gameName"></strong>
     </div>
-		<div class="live-list clearfix">
-			<router-link v-for="(roomlist, index) in roomlists" :key="index" 
-        :to="{name: 'detail', params: {id: roomlist.room_id}}" class="live">
+    <div class="live-list clearfix">
+      <router-link v-for="(roomlist, index) in roomlists" :key="index" :to="{name: 'detail', params: {id: roomlist.room_id}}" class="live">
         <img class="live-feature" :src="roomlist.room_src">
-				<div class="live-title">{{roomlist.room_name}}</div>
-				<div class="live-info">
-					<span class="dy-name">{{roomlist.nickname}}</span>
-					<span class="popularity">{{roomlist.online | fixed}}</span>
-				</div>
-			</router-link>
-		</div>
-		<more-button>
-			<div class="more-button" v-if="!hidden">
-				<div v-show="!loading" @click="loadMore">加载更多</div>
-				<div v-show="loading" class="ball-pulse">
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-			</div>
-		</more-button>
-	</div>
+        <div class="live-title">{{roomlist.room_name}}</div>
+        <div class="live-info">
+          <span class="dy-name">{{roomlist.nickname}}</span>
+          <span class="popularity">{{roomlist.online | fixed}}</span>
+        </div>
+      </router-link>
+    </div>
+    <dy-more-button>
+      <div class="more-button" v-if="!hidden">
+        <div v-show="!loading" @click="loadMore">加载更多</div>
+        <div v-show="loading" class="ball-pulse">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </dy-more-button>
+  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import MoreButton from '~/moreButton.vue'
+import DyMoreButton from '@/components/DyMoreButton'
 
 export default {
   name: 'rooms',
@@ -73,7 +72,7 @@ export default {
     }
   },
   components: {
-    MoreButton
+    DyMoreButton
   }
 }
 </script>

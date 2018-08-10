@@ -1,28 +1,30 @@
 <template>
-	<section class="content">
-		<div class="m-row">
-			<swiper></swiper>
-			<div class="live-list">
-				<router-link v-for="(livelist, index) in livelists" :key="index" 
-          :to="{name: 'detail', params: {id: livelist.room_id}}" class="live">
+  <section class="content">
+    <div class="m-row">
+      <dy-swiper />
+      <div class="live-list">
+        <router-link v-for="(livelist, index) in livelists" :key="index" :to="{name: 'detail', params: {id: livelist.room_id}}" class="live">
           <img class="live-feature" :src="livelist.room_src">
-					<div class="live-title">{{livelist.room_name}}</div>
-					<div class="live-info">
-						<span class="dy-name">{{livelist.nickname}}</span>
-						<span class="popularity">{{livelist.online | fixed}}</span>
-					</div>
-				</router-link>
-			</div>
-		</div>
-	</section>
+          <div class="live-title">{{livelist.room_name}}</div>
+          <div class="live-info">
+            <span class="dy-name">{{livelist.nickname}}</span>
+            <span class="popularity">{{livelist.online | fixed}}</span>
+          </div>
+        </router-link>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import Swiper from '~/swiper'
+import DySwiper from '@/components/DySwiper'
 
 export default {
-  data: () => ({}),
+  name: 'Home',
+  data() {
+    return {}
+  },
   computed: {
     ...mapGetters(['livelists'])
   },
@@ -30,13 +32,12 @@ export default {
     this.$store.dispatch('fetchLiveLists', { offset: 0, limit: 30 })
   },
   components: {
-    Swiper
+    DySwiper
   }
 }
 </script>
 
 <style lang="scss">
-
 .m-row {
   background: #fff;
 }

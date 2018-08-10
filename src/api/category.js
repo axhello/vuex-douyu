@@ -13,4 +13,3 @@ export function category(query) {
     params: query
   })
 }
-

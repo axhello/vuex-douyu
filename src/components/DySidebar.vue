@@ -3,10 +3,7 @@
     <div class="sidebar-container" :class="{'show-sidebar':leftNavState}">
       <nav>
         <ul class="sidebar-list">
-          <li class="sidenav"
-              v-for="category in categories"
-              @click="hideNav"
-              :key="category.shortName">
+          <li class="sidenav" v-for="category in categories" @click="hideNav" :key="category.shortName">
             <router-link :to="{ name: 'category', params: { type: category.shortName }}">
               <span class="title">{{category.cate1Name}}</span>
               <span class="right">
@@ -23,6 +20,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  name: 'DySidebar',
   computed: {
     ...mapGetters(['leftNavState', 'categories'])
   },

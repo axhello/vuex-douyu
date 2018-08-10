@@ -1,48 +1,25 @@
 <template>
   <div class="main">
-    <navbar></navbar>
+    <dy-navbar/>
     <div class="view">
-      <router-view></router-view>
+      <router-view />
     </div>
-    <sidebar></sidebar>
+    <dy-sidebar/>
   </div>
 </template>
 
 <script>
-import Sidebar from '~/sidebar'
-import Navbar from '~/navbar'
+import DySidebar from '@/components/DySidebar'
+import DyNavbar from '@/components/DyNavbar'
 export default {
   name: 'App',
   components: {
-    Sidebar, Navbar
+    DySidebar,
+    DyNavbar
   }
 }
 </script>
 
 <style lang="scss">
-  body.slide-overflow {
-    overflow: hidden;
-  }
-  .view{
-    margin-top: 1.233rem;
-  }
-  html body {
-    line-height: 1.5;
-    font-family: "Helvetica Neue","Arial","PingFang SC","Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
-    color: #333;
-    background-color: #F4F4F4;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  .clearfix {
-    &:before,
-    &:after{
-      content: " ";
-      display: table;
-    }
-    &:after {
-      clear: both;
-    }
-  }
+
 </style>

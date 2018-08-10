@@ -9,7 +9,7 @@ import FastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import * as filters from './filters'
 import './assets/styles/reset.css'
-import './assets/styles/index.css'
+import './assets/styles/index.scss'
 import 'swiper/dist/css/swiper.css'
 import '@/icons' // icon
 
@@ -21,7 +21,6 @@ Object.keys(filters).forEach(key => {
 })
 
 Vue.use(VueAwesomeSwiper)
-
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -29,6 +28,5 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 })

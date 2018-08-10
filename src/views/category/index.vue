@@ -1,13 +1,10 @@
 <template>
-	<div class="n-list clearfix">
-		<a v-for="(catelist, index) in catelists"
-      :key="index"
-      class="n-list-item"
-      @click="rooms(catelist)">
+  <div class="n-list clearfix">
+    <a v-for="(catelist, index) in catelists" :key="index" class="n-list-item" @click="rooms(catelist)">
       <img class="live-feature" :src="catelist.icon">
       <p class="title">{{ catelist.cate2Name }}</p>
     </a>
-	</div>
+  </div>
 </template>
 
 <script>

@@ -1,33 +1,25 @@
+// https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
-    // parser: 'babel-eslint',
-    sourceType: 'module'
+    parser: 'babel-eslint'
   },
   env: {
     browser: true,
-    node: true,
-    es6: true,
   },
   extends: [
-    "eslint:recommended"
+    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
+    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
+    'plugin:vue/essential', 
+    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+    'standard'
   ],
   // required to lint *.vue files
   plugins: [
-    'html',
     'vue'
   ],
-  // check if imports actually resolve
-  'settings': {
-    'import/resolver': {
-      'webpack': {
-        'config': 'build/webpack.base.conf.js'
-      }
-    }
-  },
   // add your custom rules here
-  //it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
     "vue/html-self-closing": "off",
     'accessor-pairs': 2,
@@ -81,7 +73,7 @@ module.exports = {
     'no-class-assign': 2,
     'no-cond-assign': 2,
     'no-const-assign': 2,
-    'no-control-regex': 2,
+    'no-control-regex': 0,
     'no-delete-var': 2,
     'no-dupe-args': 2,
     'no-dupe-class-members': 2,

@@ -1,4 +1,3 @@
-
 const app = {
   state: {
     loading: false,

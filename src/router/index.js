@@ -1,38 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const home = r => require.ensure([], () => r(require('@/views/home')), 'home')
-const category = r => require.ensure([], () => r(require('@/views/category')), 'category')
-const rooms = r => require.ensure([], () => r(require('@/views/rooms')), 'rooms')
-const detail = r => require.ensure([], () => r(require('@/views/detail')), 'detail')
-
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/404',
+      component: () => import('@/views/error/404')
+    },
+    {
       path: '/',
       name: 'index',
-      component: home
+      component: () => import('@/views/home')
     },
     {
       path: '/category/:type',
       name: 'category',
-      component: category
+      component: () => import('@/views/category')
     },
     {
       path: '/rooms/:name',
       name: 'rooms',
-      component: rooms
+      component: () => import('@/views/room')
     },
     {
       path: '/detail/:id',
       name: 'detail',
-      component: detail
+      component: () => import('@/views/detail')
     },
     {
       path: '*',
-      component: home
+      redirect: '/404'
     }
   ]
 })

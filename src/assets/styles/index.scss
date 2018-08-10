@@ -1,0 +1,32 @@
+body.slide-overflow {
+  overflow: hidden;
+}
+.view{
+  margin-top: 1.233rem;
+}
+html body {
+  line-height: 1.5;
+  font-family: "Helvetica Neue","Arial","PingFang SC","Hiragino Sans GB","STHeiti","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+  color: #333;
+  background-color: #F4F4F4;
+}
+* {
+  box-sizing: border-box;
+}
+.clearfix {
+  &:before,
+  &:after{
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
