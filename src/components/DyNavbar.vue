@@ -2,7 +2,6 @@
   <nav id="toolbar">
     <div class="toolbar-icon" @click="showNav">
       <svg-icon icon-class="menu"></svg-icon>
-      <span class="menu-title">分类</span>
     </div>
     <div class="toolbar-title"></div>
     <div class="toolbar-left">

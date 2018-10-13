@@ -57,7 +57,7 @@ const ajax = {
           })
       })
     },
-    fetchCategory({ commit }, payload) {
+    fetchCategory({ commit }) {
       return new Promise((resolve, reject) => {
         category()
           .then(response => {

@@ -43,7 +43,7 @@ export default {
     transform: translateZ(0);
     height: 100%;
     overflow: auto;
-    width: 7.733rem;
+    width: 5.733rem;
     left: -7.733rem;
     z-index: 500;
     top: 0;
